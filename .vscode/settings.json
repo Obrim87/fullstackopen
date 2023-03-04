@@ -6,5 +6,8 @@
 {
   "emmet.includeLanguages": {
      "javascript": "javascriptreact"
-  }
+  },
+  "emmet.showSuggestionsAsSnippets": false,
+  "editor.snippetSuggestions": "inline",
+  "editor.suggest.snippetsPreventQuickSuggestions": false
 }
