@@ -30,7 +30,7 @@ const App = () => {
   const [notes, setNotes] = useState([])
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
-  const [errorMessage, setErrorMessage] = useState('some error happened...')
+  const [errorMessage, setErrorMessage] = useState('')
 
   // pulls JSON from local dummy server
   useEffect(() => {
@@ -69,14 +69,15 @@ const App = () => {
     const note = notes.find(n => n.id === id)
     const changedNote = { ...note, important: !note.important }
   
-    // updates note already stored on the dummy server
+    // updates note already stored on the server
     noteService
       .update(id, changedNote)
       .then(response => {
-        setNotes(notes.map(note => note.id !== id ? note : response.data))  
+        setNotes(notes.map(note => note.id !== id ? note : response.data))
       })
       .catch(error => {
         setErrorMessage(
+          console.log(error)
           `Note '${note.content}' was already removed from server`
         )
         setTimeout(() => {

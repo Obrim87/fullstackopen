@@ -3,11 +3,18 @@ import personServices from '../services/persons'
 const PersonForm = ({ setPersons, setNewName, setNewTel, setSuccessMessage, setErrorMessage, persons, newName, newTel }) => {
   const addName = (e) => {
     e.preventDefault()
-    if (!newName || !newTel) return console.log('You must enter a name and number')
+    if (!newName || !newTel) {
+      setErrorMessage('You must enter a name and number')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000);
+      return
+    }
     let nameObject = {
       name: newName,
       tel: newTel
     }
+    // checks if the name already exists and asks if you want to update
     if (persons.find(p => p.name.toLowerCase() === nameObject.name.toLowerCase())) {
       if (window.confirm(`${nameObject.name} already exists, do you wish to update the phone number?`)) {
         let changedPerson = persons.find(p => p.name.toLowerCase() === nameObject.name.toLowerCase())
@@ -23,15 +30,18 @@ const PersonForm = ({ setPersons, setNewName, setNewTel, setSuccessMessage, setE
           .catch(error => {
             if (error.response.status === 404) {
               setErrorMessage(`Information on ${changedPerson.name} has already been removed from the server.`)
-              setTimeout(() => {
-                setErrorMessage(null)
-              }, 5000);
-            } 
+            } else if (error.response.status === 400) {
+              setErrorMessage(error.response.data.error)
+            }
+            setTimeout(() => {
+              setErrorMessage(null)
+            }, 5000); 
           })
       }
       return
     }
 
+    // if the name is unique, sends it to the backend and updates the front end
     personServices.create(nameObject)
       .then(response => {
         setPersons(persons.concat(response.data))
@@ -41,7 +51,12 @@ const PersonForm = ({ setPersons, setNewName, setNewTel, setSuccessMessage, setE
           setSuccessMessage(null)
         }, 5000);
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000);
+      })
   }
 
   return (

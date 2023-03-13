@@ -28,8 +28,7 @@ const Persons = ({ persons, search, setPersons, setSuccessMessage, setErrorMessa
     <>
       {persons.map(person =>
         <p key={person.name}>
-          {person.name} - {person.tel}
-          <button onClick={() => deleteRecord(person.id)}>delete</button>
+          {person.name} - {person.tel} <button onClick={() => deleteRecord(person.id)}>delete</button>
         </p>
       )}
     </>

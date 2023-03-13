@@ -35,6 +35,7 @@ const App = () => {
   useEffect(() => {
     personServices.getAll()
       .then(response => {
+        console.log(response.data)
         setPersons(response.data)
       })
       .catch(error => console.log(error))

@@ -1,0 +1,7 @@
+POST https://floral-sun-4739.fly.dev/api/persons
+Content-Type: application/json
+
+{
+  "name": "Michael OBrien",
+  "tel": "0456 564 918"
+}
