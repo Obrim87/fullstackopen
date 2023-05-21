@@ -36,12 +36,8 @@ const App = () => {
   useEffect(() => {
     noteService
       .getAll()
-      .then(response => {
-        setNotes(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      .then(res => setNotes(res))
+      .catch(err => console.log(err))
   }, [])
 
   const addNote = (e) => {

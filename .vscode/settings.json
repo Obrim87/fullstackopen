@@ -9,5 +9,7 @@
   },
   "emmet.showSuggestionsAsSnippets": false,
   "editor.snippetSuggestions": "inline",
-  "editor.suggest.snippetsPreventQuickSuggestions": false
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false
 }
