@@ -24,7 +24,7 @@ blogsRouter.delete('/:id', async (request, response) => {
 
 blogsRouter.post('/', async (request, response) => {
   const body = request.body
-  const user = request.user
+  const user = request.user // request.user is created by decoding the provide token in the API call in middleware
 
   const blog = new Blog({
     title: body.title,

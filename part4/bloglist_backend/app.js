@@ -12,11 +12,12 @@ const loginRouter = require('./controllers/login')
 mongoose.set('strictQuery', false)
 
 const mongoUrl = config.MONGODB_URI
-mongoose.connect(mongoUrl)
+mongoose
+  .connect(mongoUrl)
   .then(() => {
     logger.info('Connected to MongoDB')
   })
-  .catch((error) => {
+  .catch(error => {
     logger.error('error connecting to MongoDB:', error.message)
   })
 
@@ -26,9 +27,16 @@ app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 app.use(middleware.userExtractor)
 
-app.use('/api/blogs', blogsRouter, )
+app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+
+// this endpoint is only available when in test mode (defined in utils/config.js and package.json)
+// used for clearing the DB for Cypress E2E testing
+if (process.env.NODE_ENV === 'test') {
+  const testingRouter = require('./controllers/testing')
+  app.use('/api/testing', testingRouter)
+}
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

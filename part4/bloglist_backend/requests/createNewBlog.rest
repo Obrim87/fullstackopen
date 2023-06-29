@@ -1,10 +1,10 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhvbmphIiwiaWQiOiI2NDU0MjViNjQ4M2Y4OGJiMWY2YTU3NmEiLCJpYXQiOjE2ODQyNzMyMTZ9.ZanKXPRqjpl0DJcPuZtwmjijSBWldFGz72Av5dvly5w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhvbmphIiwiaWQiOiI2NDU0MjViNjQ4M2Y4OGJiMWY2YTU3NmEiLCJpYXQiOjE2ODYxNzM4MzZ9.8A0hfl_kBgGaXSMZG645X_1FhZdVGwcwH4EjAJvLcmQ
 
 {
-  "title": "My crappy 4th blog",
-  "author": "some other guy",
-  "url": "www.mycrappyblog.com.au",
-  "likes": 69
+  "title": "How to Honja in the modern age",
+  "author": "Honja Blade",
+  "url": "www.gethonjad.com.au",
+  "likes": 100
 }

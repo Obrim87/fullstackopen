@@ -1,0 +1,35 @@
+.notification {
+  color: green;
+  background: lightgrey;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  background: lightgrey;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.empty {
+  min-height: 49px;
+}
+
+.delete {
+  border: 2px red solid;
+  border-radius: 3px;
+  color: red;
+}
+
+.blog {
+  padding: 5px;
+  border: solid black 1px;
+  margin-bottom: 5px
+}

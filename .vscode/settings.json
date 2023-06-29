@@ -1,15 +1,24 @@
 // {
 //   "emmet.preferences": {
-  
+
 //   }
 // }
 {
   "emmet.includeLanguages": {
-     "javascript": "javascriptreact"
+    "javascript": "javascriptreact"
   },
   "emmet.showSuggestionsAsSnippets": false,
   "editor.snippetSuggestions": "inline",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.tabSize": 2,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "prettier.arrowParens": "avoid",
+  "prettier.singleQuote": true,
+  "prettier.singleAttributePerLine": true,
+  "prettier.semi": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.jsxSingleQuote": true,
+  "editor.formatOnSave": true,
+  "prettier.useEditorConfig": false,
+  "prettier.trailingComma": "none"
 }
