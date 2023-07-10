@@ -20,5 +20,7 @@
   "prettier.jsxSingleQuote": true,
   "editor.formatOnSave": true,
   "prettier.useEditorConfig": false,
-  "prettier.trailingComma": "none"
+  "prettier.trailingComma": "none",
+  "cSpell.words": ["initialise", "reduxjs"],
+  "cSpell.language": "en-GB"
 }
