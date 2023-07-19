@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhvbmphIiwiaWQiOiI2NDU0MjViNjQ4M2Y4OGJiMWY2YTU3NmEiLCJpYXQiOjE2ODYxNzM4MzZ9.8A0hfl_kBgGaXSMZG645X_1FhZdVGwcwH4EjAJvLcmQ
+
+{
+  "title": "How to Honja in the modern age",
+  "author": "Honja Blade",
+  "url": "www.gethonjad.com.au",
+  "likes": 100
+}

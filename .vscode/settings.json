@@ -12,15 +12,24 @@
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "prettier.arrowParens": "avoid",
+  "prettier.arrowParens": "always",
   "prettier.singleQuote": true,
-  "prettier.singleAttributePerLine": true,
+  "prettier.singleAttributePerLine": false,
   "prettier.semi": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.jsxSingleQuote": true,
   "editor.formatOnSave": true,
-  "prettier.useEditorConfig": false,
+  "prettier.useEditorConfig": true,
   "prettier.trailingComma": "none",
-  "cSpell.words": ["initialise", "reduxjs"],
-  "cSpell.language": "en-GB"
+  "cSpell.words": [
+    "Bobermien",
+    "initialise",
+    "linebreak",
+    "papayawhip",
+    "Petreska",
+    "reduxjs"
+  ],
+  "cSpell.language": "en-GB",
+  "prettier.bracketSameLine": true,
+  "cSpell.ignoreWords": ["Letraset", "apos", "mobrien", "noreferrer"]
 }

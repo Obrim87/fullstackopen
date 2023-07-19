@@ -13,12 +13,16 @@ const counterReducer = (state, action) => {
   }
 }
 
+// context created
 const CounterContext = createContext()
 
-export const CounterContextProvider = props => {
+// this provider is exported to index.js
+export const CounterContextProvider = (props) => {
+  // reducer defined here
   const [counter, counterDispatch] = useReducer(counterReducer, 0)
 
   return (
+    // all children can use the context (used in index.js)
     <CounterContext.Provider value={[counter, counterDispatch]}>
       {props.children}
     </CounterContext.Provider>

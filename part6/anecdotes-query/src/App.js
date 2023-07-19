@@ -14,7 +14,7 @@ const App = () => {
     retry: 1
   })
 
-  const [notification, dispatch] = useContext(NotificationContext)
+  const [notification] = useContext(NotificationContext)
 
   return (
     <div>

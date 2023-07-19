@@ -1,0 +1,9 @@
+PUT http://localhost:3001/api/blogs/6435dcfe29a8ac2384b8f8d5
+Content-Type: application/json
+
+{
+  "title": "My first bloog",
+  "author": "Michael O'Brien",
+  "url": "www.myfirstblog.com.au",
+  "likes": 69
+}

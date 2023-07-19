@@ -17,7 +17,7 @@ const App = () => {
 
   // pulls JSON from local dummy server
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const response = await noteService.getAll()
       setNotes(response)
     })()
@@ -32,7 +32,7 @@ const App = () => {
     }
   }, [])
 
-  const addNote = async (note) => {
+  const addNote = async note => {
     // posts new note to server
     try {
       const response = await noteService.create(note)
@@ -50,13 +50,13 @@ const App = () => {
 
   const notesToShow = showAll ? notes : notes.filter(note => note.important)
 
-  const toggleImportanceOf = async (id) => {
+  const toggleImportanceOf = async id => {
     const note = notes.find(n => n.id === id)
     const changedNote = { ...note, important: !note.important }
     // updates note already stored on the server
     try {
       const response = await noteService.update(id, changedNote)
-      setNotes(notes.map(note => note.id !== id ? note : response.data))
+      setNotes(notes.map(note => (note.id !== id ? note : response.data)))
     } catch (error) {
       console.log(error)
       setErrorMessage(`Note '${note.content}' was already removed from server`)
@@ -67,7 +67,7 @@ const App = () => {
     }
   }
 
-  const handleLogin = async (loginDetails) => {
+  const handleLogin = async loginDetails => {
     try {
       const user = await loginService.login(loginDetails)
       // stores the user object locally
@@ -96,26 +96,38 @@ const App = () => {
     <div>
       <h1>Notes</h1>
       <Notification message={errorMessage} />
-      {!user &&
+      {!user && (
         <Togglable buttonLabel={'Log in'}>
           <p>Please use the form below to log in</p>
           <LoginForm handleLogin={handleLogin} />
         </Togglable>
-      }
-      {user &&
-      <div>
-        <p>You are currently logged in as {user.username}. <button onClick={handleLogout}>Logout</button></p>
-        <Togglable buttonLabel={'Add a note'} ref={noteFormRef}>
-          <NoteForm createNote={addNote} />
-        </Togglable>
-        <br />
-      </div>
-      }
-      <button onClick={() => setShowAll(!showAll)}>Show {showAll ? 'important only' : 'all'}</button>
+      )}
+      {user && (
+        <div>
+          <p>
+            You are currently logged in as {user.username}.{' '}
+            <button onClick={handleLogout}>Logout</button>
+          </p>
+          <Togglable
+            buttonLabel={'Add a note'}
+            ref={noteFormRef}
+          >
+            <NoteForm createNote={addNote} />
+          </Togglable>
+          <br />
+        </div>
+      )}
+      <button onClick={() => setShowAll(!showAll)}>
+        Show {showAll ? 'important only' : 'all'}
+      </button>
       <ul>
-        {notesToShow.map(note =>
-          <Note key={note.id} note={note} toggleImportance={() => toggleImportanceOf(note.id)} />
-        )}
+        {notesToShow.map(note => (
+          <Note
+            key={note.id}
+            note={note}
+            toggleImportance={() => toggleImportanceOf(note.id)}
+          />
+        ))}
       </ul>
       <Footer />
     </div>
