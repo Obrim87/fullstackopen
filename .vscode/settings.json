@@ -22,14 +22,36 @@
   "prettier.useEditorConfig": true,
   "prettier.trailingComma": "none",
   "cSpell.words": [
+    "Arto",
     "Bobermien",
+    "Clearable",
+    "elem",
+    "Hellas",
     "initialise",
     "linebreak",
+    "Luukkainen",
+    "Malminkaari",
+    "Matti",
+    "Nallemäentie",
     "papayawhip",
     "Petreska",
-    "reduxjs"
+    "reduxjs",
+    "Ruuska",
+    "Tapiolankatu",
+    "Venla"
   ],
   "cSpell.language": "en-GB",
   "prettier.bracketSameLine": true,
-  "cSpell.ignoreWords": ["Letraset", "apos", "mobrien", "noreferrer"]
+  "cSpell.ignoreWords": [
+    "Birthyear",
+    "Fyodor",
+    "Kerievsky",
+    "Letraset",
+    "Metz",
+    "apos",
+    "mobrien",
+    "noreferrer"
+  ],
+  "prettier.enable": true,
+  "git.ignoreLimitWarning": true
 }
