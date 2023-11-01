@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import { Routes, Route, Link, useMatch, useNavigate } from 'react-router-dom'
-import Menu from './components/Menu'
-import CreateNew from './components/CreateNew'
-import AnecdoteList from './components/AnecdoteList'
-import Notification from './components/Notification'
-import Anecdote from './components/Anecdote'
-import About from './components/About'
-import Footer from './components/Footer'
+import { useState } from 'react';
+import { Routes, Route, useMatch, useNavigate } from 'react-router-dom';
+import Menu from './components/Menu';
+import CreateNew from './components/CreateNew';
+import AnecdoteList from './components/AnecdoteList';
+import Notification from './components/Notification';
+import Anecdote from './components/Anecdote';
+import About from './components/About';
+import Footer from './components/Footer';
 
 const App = () => {
-  const navigate = useNavigate()
-  const [notification, setNotification] = useState('')
+  const navigate = useNavigate();
+  const [notification, setNotification] = useState('');
   const [anecdotes, setAnecdotes] = useState([
     {
       content: 'If it hurts, do it more often',
@@ -26,35 +26,35 @@ const App = () => {
       votes: 0,
       id: 2
     }
-  ])
+  ]);
 
-  const match = useMatch('/anecdotes/:id')
+  const match = useMatch('/anecdotes/:id');
   const anecdote = match
     ? anecdotes.find((item) => item.id === Number(match.params.id))
-    : null
+    : null;
 
   const addNew = (anecdote) => {
-    anecdote.id = Math.round(Math.random() * 10000)
-    setAnecdotes(anecdotes.concat(anecdote))
-    navigate('/')
-    setNotification(`A new anecdote, '${anecdote.content}' has been created!`)
+    anecdote.id = Math.round(Math.random() * 10000);
+    setAnecdotes(anecdotes.concat(anecdote));
+    navigate('/');
+    setNotification(`A new anecdote, '${anecdote.content}' has been created!`);
     setTimeout(() => {
-      setNotification('')
-    }, 5000)
-  }
+      setNotification('');
+    }, 5000);
+  };
 
-  const anecdoteById = (id) => anecdotes.find((a) => a.id === id)
+  const anecdoteById = (id) => anecdotes.find((a) => a.id === id);
 
   const vote = (id) => {
-    const anecdote = anecdoteById(id)
+    const anecdote = anecdoteById(id);
 
     const voted = {
       ...anecdote,
       votes: anecdote.votes + 1
-    }
+    };
 
-    setAnecdotes(anecdotes.map((a) => (a.id === id ? voted : a)))
-  }
+    setAnecdotes(anecdotes.map((a) => (a.id === id ? voted : a)));
+  };
 
   return (
     <div>
@@ -72,7 +72,7 @@ const App = () => {
       </Routes>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
