@@ -59,11 +59,12 @@ export const parseSsn = (ssn: unknown): string => {
 };
 
 export const parseDate = (date: unknown): string => {
+  // regex check to make sure date is in YYYY-MM-DD format
   const regex = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/gm;
   if (isString(date) && date.match(regex)) return date;
 
   throw new Error(
-    `A date you entered, (${date}) is either missing or incorrect. It must be in YYYY-MM-DD format`
+    `A date you entered, ${date} is either missing or incorrect.`
   );
 };
 
