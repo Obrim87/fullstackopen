@@ -1,0 +1,81 @@
+import { AlertColor } from '@mui/material';
+
+export interface Diagnosis {
+  code: string;
+  name: string;
+  latin?: string;
+}
+
+export enum Gender {
+  Male = 'male',
+  Female = 'female',
+  Other = 'other'
+}
+
+enum HealthCheckRating {
+  'Healthy' = 0,
+  'LowRisk' = 1,
+  'HighRisk' = 2,
+  'CriticalRisk' = 3
+}
+
+export interface BaseEntry {
+  id: string;
+  description: string;
+  date: string | null;
+  specialist: string;
+  // takes the code field from DiagnosesRecord type in case it ever changes
+  // also uses the generic array syntax
+  diagnosisCodes?: Array<Diagnosis['code']>;
+}
+
+export interface HealthCheckEntry extends BaseEntry {
+  type: 'HealthCheck';
+  healthCheckRating: HealthCheckRating;
+}
+
+export interface OccupationalHealthcareEntry extends BaseEntry {
+  type: 'OccupationalHealthcare';
+  employerName: string;
+  sickLeave?: {
+    startDate: string;
+    endDate: string;
+  };
+}
+
+export interface HospitalEntry extends BaseEntry {
+  type: 'Hospital';
+  discharge: {
+    date: string;
+    criteria: string;
+  };
+}
+
+export type Entry =
+  | HealthCheckEntry
+  | OccupationalHealthcareEntry
+  | HospitalEntry;
+
+export interface Patient {
+  id: string;
+  name: string;
+  occupation: string;
+  gender: Gender;
+  ssn?: string;
+  dateOfBirth?: string;
+  entries?: Entry[];
+}
+
+export interface NotificationContextType {
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  setType: React.Dispatch<React.SetStateAction<AlertColor | null>>;
+}
+
+export interface SinglePatientContextType {
+  singlePatientData: Patient;
+  setSinglePatientData: React.Dispatch<
+    React.SetStateAction<Patient | undefined>
+  >;
+}
+
+export type PatientFormValues = Omit<Patient, 'id' | 'entries'>;
